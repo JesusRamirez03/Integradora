@@ -270,7 +270,7 @@
                             <ImageView
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@drawable/giro" />
+                                android:src="@drawable/giro1" />
 
 
                         </LinearLayout>
