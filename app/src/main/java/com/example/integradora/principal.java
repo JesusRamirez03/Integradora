@@ -1,9 +1,15 @@
 package com.example.integradora;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -13,66 +19,189 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 
 public class principal extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    ActionBarDrawerToggle drawerToggle;
 
-    private DrawerLayout drawerLayout = null;
-    private ActionBarDrawerToggle toggle = null;
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        if (drawerToggle.onOptionsItemSelected(item)){
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
 
-        Toolbar toolbar = findViewById(R.id.toolbar_main);
-        setSupportActionBar(toolbar);
-
         drawerLayout = findViewById(R.id.drawer_layout);
-        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawerLayout.addDrawerListener(toggle);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.nav_home) {
-            Toast.makeText(this, "Inicio", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_incubadoras) {
-            Toast.makeText(this, "Incubadoras", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_sensores) {
-            Toast.makeText(this, "Sensores", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_cuenta) {
-            Toast.makeText(this, "Cuenta", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_salir) {
-            Toast.makeText(this, "Salir", Toast.LENGTH_SHORT).show();
+        navigationView = findViewById(R.id.nav_view);
+        drawerToggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(drawerToggle);
+        drawerToggle.syncState();
+        // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
-        drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.menuPorfile) {
+                    // Inicia la Activity Profile
+                    Intent intent = new Intent(principal.this, profile.class);
+                    startActivity(intent);
+                    drawerLayout.closeDrawer(GravityCompat.START);
+
+                    return true;
+                } else if (item.getItemId()==R.id.menuAgregarEmpresa) {
+                    Intent intent = new Intent(principal.this, AgregarEmpresa.class);
+                    startActivity(intent);
+                    drawerLayout.closeDrawer(GravityCompat.START);
+
+                    return true;
+                }
+                else if (item.getItemId()==R.id.menuAgregarIncubadora) {
+                    Intent intent = new Intent(principal.this, AgregarIncubadora.class);
+                    startActivity(intent);
+                    drawerLayout.closeDrawer(GravityCompat.START);
+
+                    return true;
+                }
+                else if (item.getItemId()==R.id.menuAgregarSensor) {
+                    Intent intent = new Intent(principal.this, AgregarSensor.class);
+                    startActivity(intent);
+                    drawerLayout.closeDrawer(GravityCompat.START);
+
+                    return true;
+                }
+                else if (item.getItemId()==R.id.movimiento) {
+                    Intent intent = new Intent(principal.this, sensor_mov.class);
+                    startActivity(intent);
+                    drawerLayout.closeDrawer(GravityCompat.START);
+
+                    return true;
+                }
+                else if (item.getItemId()==R.id.gas1) {
+                    Intent intent = new Intent(principal.this, sensor_gas.class);
+                    startActivity(intent);
+                    drawerLayout.closeDrawer(GravityCompat.START);
+
+                    return true;
+                }
+                else if (item.getItemId()==R.id.luz1) {
+                    Intent intent = new Intent(principal.this, sensor_luz.class);
+                    startActivity(intent);
+                    drawerLayout.closeDrawer(GravityCompat.START);
+
+                    return true;
+                }
+                else if (item.getItemId()==R.id.humedad1) {
+                    Intent intent = new Intent(principal.this, sensor_humedad.class);
+                    startActivity(intent);
+                    drawerLayout.closeDrawer(GravityCompat.START);
+
+                    return true;
+                }
+                else if (item.getItemId()==R.id.temperatura1) {
+                    Intent intent = new Intent(principal.this, sensor_temperatura.class);
+                    startActivity(intent);
+                    drawerLayout.closeDrawer(GravityCompat.START);
+
+                    return true;
+                }
+                else if (item.getItemId()==R.id.giroscopio) {
+                    Intent intent = new Intent(principal.this, sensor_giro.class);
+                    startActivity(intent);
+                    drawerLayout.closeDrawer(GravityCompat.START);
+
+                    return true;
+                }
+
+                return false; // Si no es el ítem deseado, no hacer nada
+            }
+
+        });
+        Button buttonTriggers = findViewById(R.id.trigger);
+        Button buttonSensors = findViewById(R.id.Sensor);
+        LinearLayout ultrasonic = findViewById(R.id.ultrasonic);
+        LinearLayout temperatura = findViewById(R.id.temperatura);
+        LinearLayout humedad = findViewById(R.id.humedad);
+        LinearLayout giroscopio = findViewById(R.id.Impact);
+        LinearLayout gas = findViewById(R.id.gas);
+        LinearLayout luz = findViewById(R.id.luz);
+
+        buttonTriggers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(principal.this, triggers.class);
+                startActivity(intent);
+            }
+        });
+
+        buttonSensors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(principal.this, principal.class);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.imagMenu).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+
+
+    }
+
+
+    // botones de sensores
+    public void onLinear(View view) {
+        Intent intent = new Intent(this, sensor_mov.class);
+        startActivity(intent);
+    }
+
+    public void onLineartemp(View view) {
+        Intent intent = new Intent(this, sensor_temperatura.class);
+        startActivity(intent);
+    }
+
+    public void onLinearhum(View view) {
+        Intent intent = new Intent(this, sensor_humedad.class);
+        startActivity(intent);
+    }
+
+    public void onLineargas(View view) {
+        Intent intent = new Intent(this, sensor_gas.class);
+        startActivity(intent);
+    }
+
+    public void onLinearluz(View view) {
+        Intent intent = new Intent(this, profile.class);
+        startActivity(intent);
+    }
+
+    public void onLineargiro(View view) {
+        Intent intent = new Intent(this, sensor_giro.class);
+        startActivity(intent);
     }
 
     @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        toggle.syncState();
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        toggle.onConfigurationChanged(newConfig);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (toggle.onOptionsItemSelected(item)) {
-            return true;
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerVisible(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
         }
-        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        return false;
     }
 }

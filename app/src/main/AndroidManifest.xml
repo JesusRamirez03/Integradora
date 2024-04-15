@@ -6,12 +6,39 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icono"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/icono_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Integradora"
         tools:targetApi="31">
+        <activity
+            android:name=".sensor_humedad"
+            android:exported="false" />
+        <activity
+            android:name=".sensor_temperatura"
+            android:exported="false" />
+        <activity
+            android:name=".sensor_luz"
+            android:exported="false" />
+        <activity
+            android:name=".sensor_giro"
+            android:exported="false" />
+        <activity
+            android:name=".sensor_gas"
+            android:exported="false" />
+        <activity
+            android:name=".sensor_mov"
+            android:exported="false" />
+        <activity
+            android:name=".AgregarEmpresa"
+            android:exported="false" />
+        <activity
+            android:name=".AgregarSensor"
+            android:exported="false" />
+        <activity
+            android:name=".AgregarIncubadora"
+            android:exported="false" />
         <activity
             android:name=".MainActivity2"
             android:exported="false" />
