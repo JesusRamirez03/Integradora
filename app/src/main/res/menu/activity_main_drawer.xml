@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<group>
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/incubadora"
+        android:title="Inicio" />
+    <item
+        android:id="@+id/nav_incubadoras"
+        android:icon="@drawable/ic_8"
+        android:title="Incubadoras" />
+    <item
+        android:id="@+id/nav_sensores"
+        android:icon="@drawable/ic_2"
+        android:title="Sensores" />
+    <item
+        android:id="@+id/nav_cuenta"
+        android:icon="@drawable/profile"
+        android:title="Cuenta" />
+    <item
+        android:id="@+id/nav_salir"
+        android:icon="@drawable/btn_arrow2"
+        android:title="Salir" />
+</group>
+</menu>
