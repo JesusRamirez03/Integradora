@@ -21,4 +21,5 @@ public class sensor_giro extends AppCompatActivity {
             return insets;
         });
     }
+
 }
