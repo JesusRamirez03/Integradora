@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/sensor_gas"
+    android:background="@drawable/fondo"
     tools:context=".sensor_gas">
 
     <RelativeLayout
