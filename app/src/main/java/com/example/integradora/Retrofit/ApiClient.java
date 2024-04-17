@@ -1,0 +1,28 @@
+package com.example.integradora.Retrofit;
+
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+public class ApiClient {
+    public static Retrofit getRetrofit() {
+
+        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl("http://18.227.49.251:3333/")
+                .client(okHttpClient)
+                .build();
+
+   return retrofit;
+    }
+    public static ApiServices getService() {
+        ApiServices apiServices = getRetrofit().create(ApiServices.class);
+        return apiServices;
+    }
+}

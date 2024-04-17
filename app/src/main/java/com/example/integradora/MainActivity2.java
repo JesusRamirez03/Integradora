@@ -3,13 +3,14 @@ package com.example.integradora;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.integradora.Views.inicio;
 
 public class MainActivity2 extends AppCompatActivity {
 
@@ -30,7 +31,7 @@ public class MainActivity2 extends AppCompatActivity {
             }
             @Override
             public void onFinish() {
-                Intent ir=new Intent(MainActivity2.this,inicio.class);
+                Intent ir=new Intent(MainActivity2.this, inicio.class);
 
                 startActivity(ir);
                 finish();

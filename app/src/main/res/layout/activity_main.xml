@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo"
-    tools:context=".inicio">
+    tools:context=".Views.inicio">
 
     <TextView
         android:id="@+id/bienvenida"

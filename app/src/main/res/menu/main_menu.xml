@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/menuEmpresas"
-        android:title="Empresas">
-        <menu>
-            <!-- Submenú para empresas existentes -->
-            <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/menuEmpresa"
-                    android:icon="@drawable/img"
-                    android:title="Empresa 1"/>
-            </group>
-            <!-- Opción para agregar una nueva empresa -->
-            <item
-                android:id="@+id/menuAgregarEmpresa"
-                android:icon="@drawable/img"
-                android:title="Agregar Empresa"/>
-        </menu>
-    </item>
+
 
     <item
         android:id="@+id/menuIncubadoras"

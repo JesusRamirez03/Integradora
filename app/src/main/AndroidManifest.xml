@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,27 +13,25 @@
         android:roundIcon="@mipmap/icono_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Integradora"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".sensor_humedad"
+            android:name=".Views.sensor_humedad"
             android:exported="false" />
         <activity
-            android:name=".sensor_temperatura"
+            android:name=".Views.sensor_temperatura"
             android:exported="false" />
         <activity
-            android:name=".sensor_luz"
+            android:name=".Views.sensor_luz"
             android:exported="false" />
         <activity
-            android:name=".sensor_giro"
+            android:name=".Views.sensor_giro"
             android:exported="false" />
         <activity
-            android:name=".sensor_gas"
+            android:name=".Views.sensor_gas"
             android:exported="false" />
         <activity
-            android:name=".sensor_mov"
-            android:exported="false" />
-        <activity
-            android:name=".AgregarEmpresa"
+            android:name=".Views.sensor_mov"
             android:exported="false" />
         <activity
             android:name=".AgregarSensor"
@@ -40,28 +40,22 @@
             android:name=".AgregarIncubadora"
             android:exported="false" />
         <activity
+            android:name=".Views.inicio"
+            android:exported="false" />
+        <activity
+            android:name=".Views.cuenta"
+            android:exported="false" />
+        <activity
+            android:name=".Views.register"
+            android:exported="false" />
+        <activity
+            android:name=".Views.login"
+            android:exported="false" />
+        <activity
+            android:name=".Views.principal"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity2"
-            android:exported="false" />
-        <activity
-            android:name=".incubadoras"
-            android:exported="false" />
-        <activity
-            android:name=".cuenta"
-            android:exported="false" />
-        <activity
-            android:name=".sensores"
-            android:exported="false" />
-        <activity
-            android:name=".register"
-            android:exported="false" />
-        <activity
-            android:name=".login"
-            android:exported="false" />
-        <activity
-            android:name=".inicio"
-            android:exported="false" />
-        <activity
-            android:name=".principal"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
-    tools:context=".inicio">
+    tools:context=".Views.inicio">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -49,17 +49,17 @@
             android:padding="16dp">
 
             <TextView
-                android:id="@+id/textvitrina"
+                android:id="@+id/textincubadora"
                 android:layout_width="250dp"
                 android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
-                android:text="Agregar Vitrina"
-                android:textSize="30sp"
+                android:text="Agregar Incubadora"
+                android:textSize="28sp"
                 />
 
             <EditText
-                android:id="@+id/editTextDescripcionVitrina"
+                android:id="@+id/editTextDescripcionIncubadora"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/editTextNombrev"
@@ -74,7 +74,7 @@
                 android:id="@+id/editTextNombrev"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/textvitrina"
+                android:layout_below="@id/textincubadora"
                 android:backgroundTint="#70FF3D00"
                 android:hint="Nombre"
                 android:inputType="text"
@@ -85,14 +85,14 @@
                 android:id="@+id/spinnerEmpresas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/editTextDescripcionVitrina"
+                android:layout_below="@id/editTextDescripcionIncubadora"
                 android:layout_marginTop="25dp"
                 android:minHeight="48dp"
                 android:prompt="@string/prompt_empresa" />
 
 
             <Button
-                android:id="@+id/buttonAgregarVitrina"
+                android:id="@+id/buttonAgregarIncubadora"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/spinnerEmpresas"

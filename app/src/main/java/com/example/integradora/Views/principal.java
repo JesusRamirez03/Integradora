@@ -1,27 +1,30 @@
-package com.example.integradora;
+package com.example.integradora.Views;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
-import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.example.integradora.AgregarIncubadora;
+import com.example.integradora.AgregarSensor;
+import com.example.integradora.R;
+import com.example.integradora.Response.LoginResponse;
 import com.google.android.material.navigation.NavigationView;
 
 public class principal extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle drawerToggle;
+    LoginResponse loginResponse;
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
@@ -45,19 +48,18 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+        Intent intent = getIntent();
+        if (intent.getExtras() != null) {
+            loginResponse = (LoginResponse) intent.getSerializableExtra("loginResponse");
+            Log.e("loginResponse", loginResponse.getMessage());
+        }
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.menuPorfile) {
                     // Inicia la Activity Profile
-                    Intent intent = new Intent(principal.this, profile.class);
-                    startActivity(intent);
-                    drawerLayout.closeDrawer(GravityCompat.START);
-
-                    return true;
-                } else if (item.getItemId()==R.id.menuAgregarEmpresa) {
-                    Intent intent = new Intent(principal.this, AgregarEmpresa.class);
+                    Intent intent = new Intent(principal.this, cuenta.class);
                     startActivity(intent);
                     drawerLayout.closeDrawer(GravityCompat.START);
 
@@ -141,7 +143,7 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
             }
         });
 
-        buttonSensors.setOnClickListener(new View.OnClickListener() {
+       buttonSensors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(principal.this, principal.class);
@@ -182,11 +184,11 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
     }
 
     public void onLinearluz(View view) {
-        Intent intent = new Intent(this, profile.class);
+        Intent intent = new Intent(this, sensor_luz.class);
         startActivity(intent);
     }
 
-    public void onLineargiro(View view) {
+    public void onLinearimp(View view) {
         Intent intent = new Intent(this, sensor_giro.class);
         startActivity(intent);
     }

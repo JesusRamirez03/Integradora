@@ -1,4 +1,4 @@
-package com.example.integradora;
+package com.example.integradora.Views;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -13,16 +13,10 @@ import com.example.integradora.R;
 
 public class sensor_luz extends AppCompatActivity {
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_sensor_luz);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
     }
 }

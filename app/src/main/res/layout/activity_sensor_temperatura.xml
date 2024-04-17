@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo"
-    tools:context=".sensor_temperatura">
+    tools:context=".Views.sensor_temperatura">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -70,7 +70,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp">
 
-            <Button
+           <!-- <Button
                 android:id="@+id/btnEncenderAire"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -87,12 +87,11 @@
                 android:layout_width="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_height="wrap_content"
-                android:text="Apagar Aire" />
+                android:text="Apagar Aire" /> -->
         </RelativeLayout>
 
     </RelativeLayout>
 
-    <!-- Contenido del Drawer (si es necesario) -->
 
 </androidx.drawerlayout.widget.DrawerLayout>
 
