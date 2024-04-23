@@ -126,7 +126,6 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
             }
 
         });
-        Button buttonTriggers = findViewById(R.id.trigger);
         Button buttonSensors = findViewById(R.id.Sensor);
         LinearLayout ultrasonic = findViewById(R.id.ultrasonic);
         LinearLayout temperatura = findViewById(R.id.temperatura);
@@ -135,13 +134,7 @@ public class principal extends AppCompatActivity implements NavigationView.OnNav
         LinearLayout gas = findViewById(R.id.gas);
         LinearLayout luz = findViewById(R.id.luz);
 
-        buttonTriggers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(principal.this, triggers.class);
-                startActivity(intent);
-            }
-        });
+
 
        buttonSensors.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -119,17 +119,6 @@
             android:textColor="@color/black"
             android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/temp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="--C°"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:layout_below="@+id/humedar"
-            android:layout_alignStart="@+id/humedar"/>
-
         <!--cardview que se usa cuando se llega a un parametro de temperatura
         y humedad
         -->

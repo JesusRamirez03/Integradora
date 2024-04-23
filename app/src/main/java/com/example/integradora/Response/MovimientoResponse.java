@@ -1,12 +1,10 @@
 package com.example.integradora.Response;
 
-import com.example.integradora.TokenData;
-
-public class LoginResponse {
+public class MovimientoResponse {
     private String title;
     private String message;
     private String type;
-    private TokenData data;
+    private Data data;
 
     public String getTitle() {
         return title;
@@ -32,11 +30,28 @@ public class LoginResponse {
         this.type = type;
     }
 
-    public TokenData getData() {
+    public Data getData() {
         return data;
     }
 
-    public void setData(TokenData data) {
+    public void setData(Data data) {
         this.data = data;
+    }
+
+    public int getValue() {
+        return data != null && data.messageDecoded != null ? data.messageDecoded.value : 0;
+    }
+
+    public int getMovimiento() {
+        return data != null && data.messageDecoded != null ? data.messageDecoded.movimiento : 0;
+    }
+
+    public static class Data {
+        private MessageDecoded messageDecoded;
+
+        public static class MessageDecoded {
+            private int value;
+            private int movimiento;
+        }
     }
 }

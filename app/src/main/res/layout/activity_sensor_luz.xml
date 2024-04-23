@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/sensor_luz"
     android:background="@drawable/fondo"
-    tools:context=".sensor_luz">
+    tools:context=".Views.sensor_luz">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

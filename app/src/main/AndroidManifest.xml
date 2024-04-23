@@ -16,6 +16,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".contraolvidada"
+            android:exported="false" />
+        <activity
             android:name=".Views.sensor_humedad"
             android:exported="false" />
         <activity

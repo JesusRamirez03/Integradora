@@ -1,19 +1,16 @@
 package com.example.integradora.Response;
 
-import com.example.integradora.TokenData;
-
-public class LoginResponse {
-    private String title;
+public class RecuperarContraResponse {
+    private String tittle;
     private String message;
     private String type;
-    private TokenData data;
 
-    public String getTitle() {
-        return title;
+    public String getTittle() {
+        return tittle;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTittle(String tittle) {
+        this.tittle = tittle;
     }
 
     public String getMessage() {
@@ -30,13 +27,5 @@ public class LoginResponse {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public TokenData getData() {
-        return data;
-    }
-
-    public void setData(TokenData data) {
-        this.data = data;
     }
 }

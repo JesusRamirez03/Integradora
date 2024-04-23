@@ -2,9 +2,11 @@ package com.example.integradora.Views;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -19,6 +21,7 @@ import com.example.integradora.Request.LoginRequest;
 import com.example.integradora.Response.LoginResponse;
 import com.example.integradora.Retrofit.ApiClient;
 import com.example.integradora.ViewModels.LoginVM;
+import com.example.integradora.contraolvidada;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,13 +38,17 @@ public class login extends AppCompatActivity {
         EditText usuario = findViewById(R.id.editTextUsuario);
         EditText contrasena = findViewById(R.id.editTextPassword);
         Button iniciarsesion = findViewById(R.id.btnIniciarSesion);
-        Button crearcuenta = findViewById(R.id.btnRegistrar);
-
+        TextView crearcuenta = findViewById(R.id.goToRegister);
+        TextView olvidecontraseña = findViewById(R.id.forgot);
         crearcuenta.setOnClickListener(v -> {
             Intent intent = new Intent(this, register.class);
             startActivity(intent);
         });
 
+        olvidecontraseña.setOnClickListener(v -> {
+            Intent intent = new Intent(this, contraolvidada.class);
+            startActivity(intent);
+        });
         iniciarsesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,19 +70,33 @@ public class login extends AppCompatActivity {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if (response.isSuccessful()){
-                    Toast.makeText(login.this, "Inicio de sesion exitoso", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(login.this, principal    .class);
-                    startActivity(intent);
-                }
-                else {
-                    Toast.makeText(login.this, "Error al iniciar sesion", Toast.LENGTH_SHORT).show();
+                    LoginResponse loginResponse = response.body();
+                    if (loginResponse != null && "success".equals(loginResponse.getType())) {
+                        // Acceder al token dentro del objeto data.token
+                        String token = loginResponse.getData().getToken().getToken();
+                        // Utilizar el token como sea necesario
+                        Toast.makeText(login.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(login.this, principal.class);
+                        startActivity(intent);
+                    } else {
+                        // Manejar caso de error de autenticación
+                        Toast.makeText(login.this, "Error al iniciar sesión: " + loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        Log.e("LoginActivity", "Error al iniciar sesión: " + loginResponse.getMessage());
+                    }
+                } else {
+                    // Manejar caso de respuesta no exitosa
+                    Toast.makeText(login.this, "Error al iniciar sesión: " + response.message(), Toast.LENGTH_SHORT).show();
+                    Log.e("LoginActivity", "Error al iniciar sesión: " + response.message());
                 }
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(login.this, "Error al iniciar sesion", Toast.LENGTH_SHORT).show();
+                // Manejar caso de fallo en la solicitud
+                Toast.makeText(login.this, "Error al iniciar sesión: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("LoginActivity", "Error al iniciar sesión: " + t.getMessage());
             }
         });
     }
+
 }

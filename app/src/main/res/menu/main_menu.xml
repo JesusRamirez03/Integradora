@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/menuIncubadoras"
-        android:title="Vitrinas">
+        android:title="Incubadoras">
         <menu>
             <!-- Submenú para incubadoras existentes -->
             <group android:checkableBehavior="single">
